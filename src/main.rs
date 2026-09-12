@@ -1,15 +1,9 @@
-use citrus::types::{FileMapper, FileType};
-use notify::{
-    Event,
-    EventKind::Create,
-    RecursiveMode, Result, Watcher,
-    event::CreateKind::{File, Folder},
-};
+use citrus::types::classify;
+use notify::{Event, EventKind::Create, RecursiveMode, Result, Watcher, event::CreateKind::File};
 use std::path::Path;
 use std::sync::mpsc;
 
 fn main() -> Result<()> {
-    let mut file_mapper = FileMapper::new();
     let (tx, rx) = mpsc::channel::<Result<Event>>();
 
     let mut watcher = notify::recommended_watcher(tx)?;
@@ -19,34 +13,14 @@ fn main() -> Result<()> {
     for res in rx {
         match res {
             Ok(event) => {
-                if event.kind == Create(File) || event.kind == Create(Folder) {
+                if event.kind == Create(File) {
                     let path = event.paths.last().unwrap();
 
-                    dbg!("Created: {:?}", path.file_name().unwrap().to_string_lossy());
-
                     let filename = path.file_name().unwrap().to_string_lossy().to_string();
-                    let extension = path.extension().unwrap().to_str().unwrap();
+                    let extension = path.extension().and_then(|e| e.to_str());
 
-                    match extension {
-                        ".jpg" | ".png" | ".gif" | ".jpeg" | ".heif" => {
-                            file_mapper.records.push(FileType::Image(filename))
-                        }
-                        ".pdf" | ".docx" | ".txt" | "xlsx" => {
-                            file_mapper.records.push(FileType::Doc(filename))
-                        }
-                        ".zip" | ".tar" | ".rar" => {
-                            file_mapper.records.push(FileType::Archive(filename))
-                        }
-                        ".mkv" | ".mp4" | "mov" => {
-                            file_mapper.records.push(FileType::Video(filename))
-                        }
-                        ".mp3" | ".wav" | ".mp4a" => {
-                            file_mapper.records.push(FileType::Audio(filename))
-                        }
-                        _ => {
-                            dbg!("Unable to map the file");
-                        }
-                    }
+                    let category = classify(extension);
+                    println!("{filename} -> {category:?}");
                 }
             }
             Err(e) => eprintln!("Failed with error:  {}", e),
