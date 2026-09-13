@@ -1,0 +1,19 @@
+[watch]
+path = "~/Downloads"
+
+[destinations]
+image = "~/Pictures/Downloads-Sorted"
+doc = "~/Documents/Downloads-Sorted"
+archive = "~/Downloads-Sorted/Archives"
+video = "~/Movies/Downloads-Sorted"
+audio = "~/Music/Downloads-Sorted"
+other = "~/Downloads-Sorted/Other"
+
+[extensions]
+image = ["jpg", "png", "gif", "jpeg", "heif"]
+doc = ["pdf", "docx", "txt", "xlsx"]
+archive = ["zip", "tar", "rar"]
+video = ["mkv", "mp4", "mov"]
+audio = ["mp3", "wav", "mp4a"]
+
+partial = ["crdownload", "part", "download"]

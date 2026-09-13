@@ -1,4 +1,7 @@
 pub mod types;
+mod config;
+mod error;
+
 #[cfg(test)]
 mod tests {
     // use super::*;
