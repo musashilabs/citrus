@@ -1,6 +1,6 @@
-pub const PARTIAL_EXTENSIONS: [&str; 3] =["crdownload", "part", "download"];
+use std::collections::HashMap;
 
-#[derive(Debug)]
+#[derive(Debug, Clone, Copy)]
 pub enum Category {
     Image,
     Doc,
@@ -10,16 +10,25 @@ pub enum Category {
     Other,
 }
 
-pub fn classify(ext: Option<&str>) -> Category {
-    match ext {
-        Some(ext) => match ext.to_lowercase().as_str() {
-            "jpg" | "png" | "gif" | "jpeg" | "heif" => Category::Image,
-            "pdf" | "docx" | "txt" | "xlsx" => Category::Doc,
-            "zip" | "tar" | "rar" => Category::Archive,
-            "mkv" | "mp4" | "mov" => Category::Video,
-            "mp3" | "wav" | "mp4a" => Category::Audio,
+impl Category {
+    pub(crate) fn from_key(key: &str) -> Category {
+        match key {
+            "image" => Category::Image,
+            "doc" => Category::Doc,
+            "archive" => Category::Archive,
+            "video" => Category::Video,
+            "audio" => Category::Audio,
             _ => Category::Other,
-        },
+        }
+    }
+}
+
+pub fn classify(ext: Option<&str>, ext_map: &HashMap<String, Category>) -> Category {
+    match ext {
+        Some(ext) => ext_map
+            .get(&ext.to_lowercase())
+            .copied()
+            .unwrap_or(Category::Other),
 
         None => Category::Other,
     }

@@ -1,4 +1,5 @@
-use citrus::types::{PARTIAL_EXTENSIONS, classify};
+use citrus::types::classify;
+use citrus::{build_extension_map, config, expand_tilde};
 use notify::{
     Event,
     EventKind::Create,
@@ -6,15 +7,28 @@ use notify::{
     RecursiveMode, Result, Watcher,
     event::{CreateKind::File, ModifyKind, RenameMode},
 };
+use std::collections::HashSet;
 use std::path::Path;
 use std::sync::mpsc;
 
 fn main() -> Result<()> {
+    let config = match config::load_or_create_config() {
+        Ok(c) => c,
+        Err(e) => {
+            eprintln!("config error: {e}");
+            std::process::exit(1);
+        }
+    };
+
+    println!("{config:#?}");
+    let ext_map = build_extension_map(&config);
+    let partial: HashSet<String> = config.partial.iter().map(|s| s.to_lowercase()).collect();
+
+    let watch_path = expand_tilde(&config.watch.path);
+
     let (tx, rx) = mpsc::channel::<Result<Event>>();
-
     let mut watcher = notify::recommended_watcher(tx)?;
-
-    watcher.watch(&Path::new("."), RecursiveMode::NonRecursive)?;
+    watcher.watch(&watch_path, RecursiveMode::NonRecursive)?;
 
     for res in rx {
         match res {
@@ -24,18 +38,17 @@ fn main() -> Result<()> {
                 {
                     let path = event.paths.last().unwrap();
 
-                    let filename = path.file_name().unwrap().to_string_lossy().to_string();
+                    // let filename = path.file_name().unwrap().to_string_lossy().to_string();
                     let extension = path.extension().and_then(|e| e.to_str());
 
-                    if PARTIAL_EXTENSIONS.contains(&extension.unwrap_or_default()) {
-                        continue;
-                    } else {
-                        // If I am here than that means there is some file which is created which has
-                        // valid extension not necessarily the one on which I can act .. so I can classify it here
-
-                        let category = classify(extension);
-                        println!("{filename} -> {category:?}");
+                    if let Some(ext) = extension {
+                        if partial.contains(&ext.to_lowercase()) {
+                            continue;
+                        }
                     }
+
+                    let category = classify(extension, &ext_map);
+                    println!("{:?} -> {category:?}", path.file_name().unwrap());
                 }
             }
             Err(e) => eprintln!("Failed with error:  {}", e),
