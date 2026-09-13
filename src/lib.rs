@@ -1,6 +1,8 @@
-pub mod types;
-mod config;
+pub mod config;
 mod error;
+pub mod types;
+mod utils;
+pub use utils::*;
 
 #[cfg(test)]
 mod tests {
