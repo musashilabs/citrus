@@ -16,4 +16,5 @@ archive = ["zip", "tar", "rar"]
 video = ["mkv", "mp4", "mov"]
 audio = ["mp3", "wav", "mp4a"]
 
-partial = ["crdownload", "part", "download"]
+[partial]
+extensions = ["crdownload", "part", "download"]

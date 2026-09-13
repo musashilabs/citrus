@@ -8,7 +8,6 @@ use notify::{
     event::{CreateKind::File, ModifyKind, RenameMode},
 };
 use std::collections::HashSet;
-use std::path::Path;
 use std::sync::mpsc;
 
 fn main() -> Result<()> {
@@ -22,7 +21,7 @@ fn main() -> Result<()> {
 
     println!("{config:#?}");
     let ext_map = build_extension_map(&config);
-    let partial: HashSet<String> = config.partial.iter().map(|s| s.to_lowercase()).collect();
+    let partial: HashSet<String> = config.partial.extensions.iter().map(|s| s.to_lowercase()).collect();
 
     let watch_path = expand_tilde(&config.watch.path);
 
@@ -49,6 +48,8 @@ fn main() -> Result<()> {
 
                     let category = classify(extension, &ext_map);
                     println!("{:?} -> {category:?}", path.file_name().unwrap());
+
+
                 }
             }
             Err(e) => eprintln!("Failed with error:  {}", e),

@@ -10,7 +10,12 @@ pub struct Config {
     pub watch: WatchConfig,
     pub destinations: HashMap<String, String>,
     pub extensions: HashMap<String, Vec<String>>,
-    pub partial: Vec<String>,
+    pub partial: PartialConfig,
+}
+
+#[derive(Deserialize, Debug)]
+pub struct PartialConfig {
+    pub extensions: Vec<String>
 }
 
 #[derive(Deserialize, Debug)]
