@@ -4,10 +4,7 @@ A background tool that watches a folder (like Downloads) and automatically sorts
 
 ## What's coming next
 
-- Actually move files into type-based folders
-- Skip files that are still downloading (like `.crdownload` / `.part`)
 - Run as a background daemon (`launchd` on macOS, `systemd` on Linux)
-- A TUI (built with `ratatui`) to add/remove watched folders and see live activity
 
 ## Why
 
@@ -21,4 +18,4 @@ Downloads folders turn into a mess fast. This automates the sorting instead of d
 
 ## Status
 
-Early / work in progress. Not usable yet - just the file-watching and classification pieces so far.
+Early / work in progress.
