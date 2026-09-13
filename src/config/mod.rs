@@ -15,7 +15,7 @@ pub struct Config {
 
 #[derive(Deserialize, Debug)]
 pub struct PartialConfig {
-    pub extensions: Vec<String>
+    pub extensions: Vec<String>,
 }
 
 #[derive(Deserialize, Debug)]

@@ -21,7 +21,12 @@ fn main() -> Result<()> {
 
     println!("{config:#?}");
     let ext_map = build_extension_map(&config);
-    let partial: HashSet<String> = config.partial.extensions.iter().map(|s| s.to_lowercase()).collect();
+    let partial: HashSet<String> = config
+        .partial
+        .extensions
+        .iter()
+        .map(|s| s.to_lowercase())
+        .collect();
 
     let watch_path = expand_tilde(&config.watch.path);
 
@@ -40,16 +45,14 @@ fn main() -> Result<()> {
                     // let filename = path.file_name().unwrap().to_string_lossy().to_string();
                     let extension = path.extension().and_then(|e| e.to_str());
 
-                    if let Some(ext) = extension {
-                        if partial.contains(&ext.to_lowercase()) {
-                            continue;
-                        }
+                    if let Some(ext) = extension
+                        && partial.contains(&ext.to_lowercase())
+                    {
+                        continue;
                     }
 
                     let category = classify(extension, &ext_map);
                     println!("{:?} -> {category:?}", path.file_name().unwrap());
-
-
                 }
             }
             Err(e) => eprintln!("Failed with error:  {}", e),
