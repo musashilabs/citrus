@@ -1,5 +1,11 @@
 use citrus::types::{PARTIAL_EXTENSIONS, classify};
-use notify::{Event, EventKind::Create, RecursiveMode, Result, Watcher, event::CreateKind::File};
+use notify::{
+    Event,
+    EventKind::Create,
+    EventKind::Modify,
+    RecursiveMode, Result, Watcher,
+    event::{CreateKind::File, ModifyKind, RenameMode},
+};
 use std::path::Path;
 use std::sync::mpsc;
 
@@ -13,7 +19,9 @@ fn main() -> Result<()> {
     for res in rx {
         match res {
             Ok(event) => {
-                if event.kind == Create(File) {
+                if event.kind == Create(File)
+                    || event.kind == Modify(ModifyKind::Name(RenameMode::Any))
+                {
                     let path = event.paths.last().unwrap();
 
                     let filename = path.file_name().unwrap().to_string_lossy().to_string();
@@ -27,8 +35,6 @@ fn main() -> Result<()> {
 
                         let category = classify(extension);
                         println!("{filename} -> {category:?}");
-
-
                     }
                 }
             }
