@@ -1,10 +1,9 @@
+use crate::error::ConfigError;
 use directories::ProjectDirs;
 use serde::Deserialize;
 use std::collections::HashMap;
 use std::fs;
 use std::path::PathBuf;
-use crate::config;
-use crate::error::ConfigError;
 
 #[derive(Deserialize, Debug)]
 pub struct Config {
@@ -22,8 +21,7 @@ pub struct WatchConfig {
 const DEFAULT_CONFIG: &str = include_str!("../../default_config.toml");
 
 pub fn config_path() -> Result<PathBuf, ConfigError> {
-    let proj_dirs = ProjectDirs::from("dev", "rohit", "citrus")
-        .ok_or(ConfigError::NoConfigDir)?;
+    let proj_dirs = ProjectDirs::from("dev", "rohit", "citrus").ok_or(ConfigError::NoConfigDir)?;
     Ok(proj_dirs.config_dir().join("config.toml"))
 }
 
@@ -37,6 +35,6 @@ pub fn load_or_create_config() -> Result<Config, ConfigError> {
     }
 
     let contents = fs::read_to_string(&path)?;
-    let config =toml::from_str(&contents)?;
+    let config = toml::from_str(&contents)?;
     Ok(config)
 }
