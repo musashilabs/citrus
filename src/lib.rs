@@ -4,6 +4,8 @@ pub mod types;
 mod utils;
 pub use utils::*;
 
+pub mod cli;
+
 #[cfg(test)]
 mod tests {
     // use super::*;

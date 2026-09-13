@@ -2,6 +2,8 @@ use crate::config::Config;
 use crate::types::Category;
 use std::collections::HashMap;
 use std::fs;
+use std::fs::OpenOptions;
+use std::io::Write;
 use std::path::{Path, PathBuf};
 
 pub fn build_extension_map(config: &Config) -> HashMap<String, Category> {
@@ -59,5 +61,11 @@ fn find_unique_path(path: &Path) -> PathBuf {
             return candidate;
         }
         i += 1;
+    }
+}
+
+pub fn log_line(log_path: &Path, line: &str) {
+    if let Ok(mut file) = OpenOptions::new().create(true).append(true).open(log_path) {
+        let _ = writeln!(file, "{line}");
     }
 }

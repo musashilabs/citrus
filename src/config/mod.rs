@@ -3,6 +3,7 @@ use directories::ProjectDirs;
 use serde::Deserialize;
 use std::collections::HashMap;
 use std::fs;
+
 use std::path::PathBuf;
 
 #[derive(Deserialize, Debug)]
@@ -42,4 +43,11 @@ pub fn load_or_create_config() -> Result<Config, ConfigError> {
     let contents = fs::read_to_string(&path)?;
     let config = toml::from_str(&contents)?;
     Ok(config)
+}
+
+pub fn log_path() -> Result<PathBuf, ConfigError> {
+    let proj_dirs = ProjectDirs::from("com", "rohit", "citrus").ok_or(ConfigError::NoConfigDir)?;
+    let data_dir = proj_dirs.data_dir();
+    fs::create_dir_all(data_dir)?;
+    Ok(data_dir.join("citrus.log"))
 }
