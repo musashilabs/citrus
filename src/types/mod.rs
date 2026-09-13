@@ -1,4 +1,7 @@
+use crate::config::Config;
+use crate::expand_tilde;
 use std::collections::HashMap;
+use std::path::PathBuf;
 
 #[derive(Debug, Clone, Copy)]
 pub enum Category {
@@ -21,6 +24,17 @@ impl Category {
             _ => Category::Other,
         }
     }
+
+    pub(crate) fn to_key(self) -> &'static str {
+        match self {
+            Self::Image => "image",
+            Self::Doc => "doc",
+            Self::Archive => "archive",
+            Self::Video => "video",
+            Self::Audio => "audio",
+            Self::Other => "other",
+        }
+    }
 }
 
 pub fn classify(ext: Option<&str>, ext_map: &HashMap<String, Category>) -> Category {
@@ -32,4 +46,11 @@ pub fn classify(ext: Option<&str>, ext_map: &HashMap<String, Category>) -> Categ
 
         None => Category::Other,
     }
+}
+
+pub fn destination_for(category: Category, config: &Config) -> Option<PathBuf> {
+    config
+        .destinations
+        .get(category.to_key())
+        .map(|s| expand_tilde(s))
 }

@@ -1,5 +1,5 @@
-use citrus::types::classify;
-use citrus::{build_extension_map, config, expand_tilde};
+use citrus::types::{classify, destination_for};
+use citrus::{build_extension_map, config, expand_tilde, move_file};
 use notify::{
     Event,
     EventKind::Create,
@@ -53,6 +53,19 @@ fn main() -> Result<()> {
 
                     let category = classify(extension, &ext_map);
                     println!("{:?} -> {category:?}", path.file_name().unwrap());
+
+                    if let Some(dest_dir) = destination_for(category, &config) {
+                        match move_file(path, &dest_dir) {
+                            Ok(()) => println!(
+                                "moved {:?} -> {}",
+                                path.file_name().unwrap(),
+                                dest_dir.display()
+                            ),
+                            Err(e) => {
+                                eprintln!("failed to move {:?}: {e}", path.file_name().unwrap())
+                            }
+                        }
+                    }
                 }
             }
             Err(e) => eprintln!("Failed with error:  {}", e),
