@@ -1,3 +1,5 @@
+pub const PARTIAL_EXTENSIONS: [&str; 3] =["crdownload", "part", "download"];
+
 #[derive(Debug)]
 pub enum Category {
     Image,

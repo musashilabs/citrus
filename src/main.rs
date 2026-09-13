@@ -1,4 +1,4 @@
-use citrus::types::classify;
+use citrus::types::{PARTIAL_EXTENSIONS, classify};
 use notify::{Event, EventKind::Create, RecursiveMode, Result, Watcher, event::CreateKind::File};
 use std::path::Path;
 use std::sync::mpsc;
@@ -19,8 +19,17 @@ fn main() -> Result<()> {
                     let filename = path.file_name().unwrap().to_string_lossy().to_string();
                     let extension = path.extension().and_then(|e| e.to_str());
 
-                    let category = classify(extension);
-                    println!("{filename} -> {category:?}");
+                    if PARTIAL_EXTENSIONS.contains(&extension.unwrap_or_default()) {
+                        continue;
+                    } else {
+                        // If I am here than that means there is some file which is created which has
+                        // valid extension not necessarily the one on which I can act .. so I can classify it here
+
+                        let category = classify(extension);
+                        println!("{filename} -> {category:?}");
+
+
+                    }
                 }
             }
             Err(e) => eprintln!("Failed with error:  {}", e),
