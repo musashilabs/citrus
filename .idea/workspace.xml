@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="ALL" />
+  </component>
+  <component name="CargoProjects">
+    <cargoProject FILE="$PROJECT_DIR$/Cargo.toml">
+      <package file="$PROJECT_DIR$">
+        <feature name="default" enabled="true" />
+      </package>
+    </cargoProject>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="443362df-87e9-4729-8159-3094d1de2372" name="Changes" comment="utils: add license, githooks, ci etc" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="RsBuildProfile:test" />
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Rust File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MacroExpansionManager">
+    <option name="directoryName" value="yBH6Hwo3" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5,
+  &quot;fromUser&quot;: false
+}</component>
+  <component name="ProjectId" id="3J8NUFPaAdllkaS5HtHTm1h9Q03" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.rust.reset.selective.auto.import&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;org.rust.cargo.project.model.PROJECT_DISCOVERY&quot;: &quot;true&quot;,
+    &quot;org.rust.cargo.project.model.impl.CargoExternalSystemProjectAware.subscribe.first.balloon&quot;: &quot;&quot;,
+    &quot;org.rust.first.attach.projects&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RunManager">
+    <configuration name="Test citrus" type="CargoCommandRunConfiguration" factoryName="Cargo Command">
+      <option name="buildProfileId" value="test" />
+      <option name="command" value="test --workspace" />
+      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
+      <envs />
+      <option name="emulateTerminal" value="true" />
+      <option name="channel" value="DEFAULT" />
+      <option name="requiredFeatures" value="true" />
+      <option name="allFeatures" value="false" />
+      <option name="withSudo" value="false" />
+      <option name="buildTarget" value="REMOTE" />
+      <option name="backtrace" value="SHORT" />
+      <option name="isRedirectInput" value="false" />
+      <option name="redirectInputPath" value="" />
+      <method v="2">
+        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="RustProjectSettings">
+    <option name="toolchainHomeDirectory" value="$USER_HOME$/.cargo/bin" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="443362df-87e9-4729-8159-3094d1de2372" name="Changes" comment="" />
+      <created>1789038748812</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1789038748812</updated>
+      <workItem from="1789038750307" duration="983000" />
+      <workItem from="1789066132548" duration="8284000" />
+      <workItem from="1789290392290" duration="8525000" />
+      <workItem from="1789308035894" duration="1497000" />
+    </task>
+    <task id="LOCAL-00001" summary="initial commit">
+      <option name="closed" value="true" />
+      <created>1789038789587</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1789038789587</updated>
+    </task>
+    <task id="LOCAL-00002" summary="log file changes using notify crate">
+      <option name="closed" value="true" />
+      <created>1789039732070</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1789039732070</updated>
+    </task>
+    <task id="LOCAL-00003" summary="chore: log file names">
+      <option name="closed" value="true" />
+      <created>1789067217497</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1789067217497</updated>
+    </task>
+    <task id="LOCAL-00004" summary="chore: add types and mapping">
+      <option name="closed" value="true" />
+      <created>1789220074278</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1789220074278</updated>
+    </task>
+    <task id="LOCAL-00005" summary="fix: remove vec mapping and replace with normal mapping">
+      <option name="closed" value="true" />
+      <created>1789221633775</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1789221633775</updated>
+    </task>
+    <task id="LOCAL-00006" summary="chore: skip partial extension based files">
+      <option name="closed" value="true" />
+      <created>1789291501791</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1789291501791</updated>
+    </task>
+    <task id="LOCAL-00007" summary="fix: track modified files during the rename ( downloading a file is not just one event )">
+      <option name="closed" value="true" />
+      <created>1789292052146</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1789292052146</updated>
+    </task>
+    <task id="LOCAL-00008" summary="feat: add config based loading">
+      <option name="closed" value="true" />
+      <created>1789294152966</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1789294152966</updated>
+    </task>
+    <task id="LOCAL-00009" summary="chore: add dirs for path resolution">
+      <option name="closed" value="true" />
+      <created>1789295380588</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1789295380588</updated>
+    </task>
+    <task id="LOCAL-00010" summary="chore: add utils for extension map and tilde expansion">
+      <option name="closed" value="true" />
+      <created>1789295406647</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1789295406647</updated>
+    </task>
+    <task id="LOCAL-00011" summary="chore: handle errors using thiserror">
+      <option name="closed" value="true" />
+      <created>1789295469893</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1789295469893</updated>
+    </task>
+    <task id="LOCAL-00012" summary="modify: classify function and wire up everything in main">
+      <option name="closed" value="true" />
+      <created>1789295524375</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1789295524375</updated>
+    </task>
+    <task id="LOCAL-00013" summary="fix: toml issue for partial">
+      <option name="closed" value="true" />
+      <created>1789305903341</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1789305903341</updated>
+    </task>
+    <task id="LOCAL-00014" summary="style: cargo fmt and clippy">
+      <option name="closed" value="true" />
+      <created>1789306138532</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1789306138532</updated>
+    </task>
+    <task id="LOCAL-00015" summary="feat: add file move logic">
+      <option name="closed" value="true" />
+      <created>1789307540203</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1789307540203</updated>
+    </task>
+    <task id="LOCAL-00016" summary="utils: add license, githooks, ci etc">
+      <option name="closed" value="true" />
+      <created>1789308902440</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1789308902440</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="initial commit" />
+    <MESSAGE value="log file changes using notify crate" />
+    <MESSAGE value="chore: log file names" />
+    <MESSAGE value="chore: add types and mapping" />
+    <MESSAGE value="fix: remove vec mapping and replace with normal mapping" />
+    <MESSAGE value="chore: skip partial extension based files" />
+    <MESSAGE value="fix: track modified files during the rename ( downloading a file is not just one event )" />
+    <MESSAGE value="feat: add config based loading" />
+    <MESSAGE value="chore: add dirs for path resolution" />
+    <MESSAGE value="chore: add utils for extension map and tilde expansion" />
+    <MESSAGE value="chore: handle errors using thiserror" />
+    <MESSAGE value="modify: classify function and wire up everything in main" />
+    <MESSAGE value="fix: toml issue for partial" />
+    <MESSAGE value="style: cargo fmt and clippy" />
+    <MESSAGE value="feat: add file move logic" />
+    <MESSAGE value="chore: add deny.toml" />
+    <MESSAGE value="utils: add license, githooks, ci etc" />
+    <option name="LAST_COMMIT_MESSAGE" value="utils: add license, githooks, ci etc" />
+  </component>
+</project>

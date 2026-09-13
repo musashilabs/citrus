@@ -38,6 +38,10 @@ fn main() -> Result<()> {
                 {
                     let path = event.paths.last().unwrap();
 
+                    //prevents spamming for partial downloaded files
+                    if !path.exists() {
+                        continue;
+                    }
                     // let filename = path.file_name().unwrap().to_string_lossy().to_string();
                     let extension = path.extension().and_then(|e| e.to_str());
 
