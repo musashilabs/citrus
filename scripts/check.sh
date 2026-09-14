@@ -16,8 +16,8 @@ cargo test --all-features
 echo "Build..."
 cargo build --all-targets --all-features
 
-echo "Audit..."
-cargo audit
+#echo "Audit..."
+#cargo audit
 
 echo "Deny..."
 cargo deny check

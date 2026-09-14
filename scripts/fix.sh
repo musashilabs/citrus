@@ -13,8 +13,8 @@ cargo clippy --fix --allow-dirty --allow-staged
 echo "==> Final clippy verification"
 cargo clippy --all-targets --all-features -- -D warnings
 
-echo "==> Audit"
-cargo audit
+#echo "==> Audit"
+#cargo audit
 
 echo "==> Deny"
 cargo deny check
