@@ -1,7 +1,7 @@
 pub mod config;
 mod error;
 pub mod types;
-mod utils;
+pub mod utils;
 pub use utils::*;
 
 pub mod cli;

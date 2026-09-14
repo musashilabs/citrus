@@ -1,4 +1,7 @@
 mod pid;
+mod status;
+pub use status::*;
+
 use crate::error::ConfigError;
 use directories::ProjectDirs;
 pub use pid::*;
@@ -29,7 +32,7 @@ pub struct WatchConfig {
 const DEFAULT_CONFIG: &str = include_str!("../../default_config.toml");
 
 pub fn config_path() -> Result<PathBuf, ConfigError> {
-    let proj_dirs = ProjectDirs::from("dev", "rohit", "dsorter").ok_or(ConfigError::NoConfigDir)?;
+    let proj_dirs = ProjectDirs::from("com", "rohit", "dsorter").ok_or(ConfigError::NoConfigDir)?;
     Ok(proj_dirs.config_dir().join("config.toml"))
 }
 

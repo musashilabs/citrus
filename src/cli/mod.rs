@@ -1,3 +1,4 @@
+use crate::config::{Status, status_path, write_status};
 use crate::config::{pid_is_alive, read_existing_pid};
 use crate::types::{classify, destination_for};
 use crate::{build_extension_map, config, expand_tilde, log_line, move_file};
@@ -13,6 +14,7 @@ use std::collections::HashSet;
 use std::fs;
 use std::path::Path;
 use std::sync::mpsc;
+use std::time::{SystemTime, UNIX_EPOCH};
 
 #[derive(Parser)]
 #[command(name = "dsorter", about = "Watches a folder and auto-sorts new files by type")]
@@ -36,6 +38,9 @@ pub enum Commands {
         #[arg(long)]
         tail: Option<usize>,
     },
+
+    ///Show current daemon status
+    Status,
 }
 
 pub fn print_log_head(log_path: &Path, n: usize) {
@@ -82,12 +87,23 @@ pub fn handle_start(pid_path: &Path, log_path: &Path) {
         }
     };
 
-    println!("{config:#?}");
+    // println!("{config:#?}");
     let ext_map = build_extension_map(&config);
     let partial: HashSet<String> =
         config.partial.extensions.iter().map(|s| s.to_lowercase()).collect();
 
     let watch_path = expand_tilde(&config.watch.path);
+    let status_path = status_path().expect("Could nto determine the status path");
+
+    let started_at = SystemTime::now().duration_since(UNIX_EPOCH).unwrap().as_secs();
+    let mut status = Status {
+        watching: watch_path.display().to_string(),
+        pid: std::process::id() as i32,
+        started_at,
+        last_action: None,
+        files_sorted: 0,
+    };
+    write_status(&status_path, &status);
 
     let (tx, rx) = mpsc::channel::<notify::Result<Event>>();
     let mut watcher = notify::recommended_watcher(tx).unwrap();
@@ -115,22 +131,28 @@ pub fn handle_start(pid_path: &Path, log_path: &Path) {
                     }
 
                     let category = classify(extension, &ext_map);
-                    println!("{:?} -> {category:?}", path.file_name().unwrap());
+                    log_line(log_path, &format!("{filename} -> {category:?}"));
 
                     if let Some(dest_dir) = destination_for(category, &config) {
                         match move_file(path, &dest_dir) {
-                            Ok(()) => log_line(
-                                log_path,
-                                &format!("moved {filename} -> {}", dest_dir.display()),
-                            ),
+                            Ok(()) => {
+                                log_line(
+                                    log_path,
+                                    &format!("moved {filename} -> {}", dest_dir.display()),
+                                );
+                                status.files_sorted += 1;
+                                status.last_action =
+                                    Some(format!("moved {filename} -> {}", dest_dir.display()));
+                                write_status(&status_path, &status);
+                            }
                             Err(e) => {
-                                eprintln!("failed to move {:?}: {e}", path.file_name().unwrap())
+                                log_line(log_path, &format!("failed to move {filename}: {e}"))
                             }
                         }
                     }
                 }
             }
-            Err(e) => eprintln!("Failed with error:  {}", e),
+            Err(e) => log_line(log_path, &format!("watch error: {e}")),
         }
     }
 }
@@ -145,5 +167,25 @@ pub fn handle_stop(pid_path: &Path) {
         _ => {
             eprintln!("dsorter is not running");
         }
+    }
+}
+
+pub fn handle_status(pid_path: &Path, status_path: &Path) {
+    match read_existing_pid(pid_path) {
+        Some(pid) if pid_is_alive(pid) => match fs::read_to_string(status_path) {
+            Ok(json) => match serde_json::from_str::<Status>(&json) {
+                Ok(s) => {
+                    println!("dsorter is running (pid {})", s.pid);
+                    println!("watching:     {}", s.watching);
+                    println!("files sorted: {}", s.files_sorted);
+                    if let Some(last) = &s.last_action {
+                        println!("last action:  {last}");
+                    }
+                }
+                Err(_) => println!("dsorter is running (pid {pid}) — status file unreadable"),
+            },
+            Err(_) => println!("dsorter is running (pid {pid}) — no status file yet"),
+        },
+        _ => println!("dsorter is not running"),
     }
 }
