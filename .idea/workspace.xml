@@ -11,7 +11,19 @@
     </cargoProject>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="443362df-87e9-4729-8159-3094d1de2372" name="Changes" comment="utils: add license, githooks, ci etc" />
+    <list default="true" id="443362df-87e9-4729-8159-3094d1de2372" name="Changes" comment="refactor: remove audiut checks">
+      <change afterPath="$PROJECT_DIR$/src/config/pid.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cargo.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deny.toml" beforeDir="false" afterPath="$PROJECT_DIR$/deny.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/check.sh" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/check.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/fix.sh" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/fix.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cli/mod.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/cli/mod.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/config/mod.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/mod.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.rs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -226,11 +238,30 @@
       <option name="project" value="LOCAL" />
       <updated>1789308902440</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="chore: update README.md">
+      <option name="closed" value="true" />
+      <created>1789316707154</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1789316707154</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial commit" />
@@ -250,6 +281,9 @@
     <MESSAGE value="feat: add file move logic" />
     <MESSAGE value="chore: add deny.toml" />
     <MESSAGE value="utils: add license, githooks, ci etc" />
-    <option name="LAST_COMMIT_MESSAGE" value="utils: add license, githooks, ci etc" />
+    <MESSAGE value="update README.md" />
+    <MESSAGE value="chore: update README.md" />
+    <MESSAGE value="refactor: remove audiut checks" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor: remove audiut checks" />
   </component>
 </project>
