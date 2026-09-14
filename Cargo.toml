@@ -8,7 +8,7 @@ repository = "https://github.com/musashilabs/dsorter"
 documentation = "https://docs.rs/dsorter"
 readme = "README.md"
 keywords = ["daemon", "background-job", "file-sorter", "sorter"]
-categories = ["utilities", "sorting"]
+categories = ["command-line-utilities"]
 exclude = [
     ".github/",
     ".githooks/",
