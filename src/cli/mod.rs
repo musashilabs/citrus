@@ -15,7 +15,7 @@ use std::path::Path;
 use std::sync::mpsc;
 
 #[derive(Parser)]
-#[command(name = "citrus", about = "Watches a folder and auto-sorts new files by type")]
+#[command(name = "dsorter", about = "Watches a folder and auto-sorts new files by type")]
 pub struct Cli {
     #[command(subcommand)]
     pub command: Option<Commands>,
@@ -57,7 +57,7 @@ pub fn print_log_tail(log_path: &Path, n: usize) {
 pub fn handle_start(pid_path: &Path, log_path: &Path) {
     if let Some(pid) = read_existing_pid(pid_path) {
         if pid_is_alive(pid) {
-            eprintln!("citrus is already running (pid {pid})");
+            eprintln!("dsorter is already running (pid {pid})");
             std::process::exit(1);
         } else {
             let _ = fs::remove_file(pid_path); // stale pidfile, clean it up
@@ -140,10 +140,10 @@ pub fn handle_stop(pid_path: &Path) {
         Some(pid) if pid_is_alive(pid) => {
             kill(Pid::from_raw(pid), Signal::SIGTERM).expect("failed to send SIGTERM");
             let _ = fs::remove_file(pid_path);
-            println!("stopped citrus (pid {pid})");
+            println!("stopped dsorter (pid {pid})");
         }
         _ => {
-            eprintln!("citrus is not running");
+            eprintln!("dsorter is not running");
         }
     }
 }

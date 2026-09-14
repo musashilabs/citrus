@@ -29,7 +29,7 @@ pub struct WatchConfig {
 const DEFAULT_CONFIG: &str = include_str!("../../default_config.toml");
 
 pub fn config_path() -> Result<PathBuf, ConfigError> {
-    let proj_dirs = ProjectDirs::from("dev", "rohit", "citrus").ok_or(ConfigError::NoConfigDir)?;
+    let proj_dirs = ProjectDirs::from("dev", "rohit", "dsorter").ok_or(ConfigError::NoConfigDir)?;
     Ok(proj_dirs.config_dir().join("config.toml"))
 }
 
@@ -48,8 +48,8 @@ pub fn load_or_create_config() -> Result<Config, ConfigError> {
 }
 
 pub fn log_path() -> Result<PathBuf, ConfigError> {
-    let proj_dirs = ProjectDirs::from("com", "rohit", "citrus").ok_or(ConfigError::NoConfigDir)?;
+    let proj_dirs = ProjectDirs::from("com", "rohit", "dsorter").ok_or(ConfigError::NoConfigDir)?;
     let data_dir = proj_dirs.data_dir();
     fs::create_dir_all(data_dir)?;
-    Ok(data_dir.join("citrus.log"))
+    Ok(data_dir.join("dsorter.log"))
 }

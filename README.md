@@ -1,4 +1,4 @@
-# citrus
+# dsorter
 
 A background tool that watches a folder (like Downloads) and automatically sorts new files into folders based on their type.
 

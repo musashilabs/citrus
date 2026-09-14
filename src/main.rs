@@ -1,6 +1,6 @@
-use citrus::cli::{Cli, Commands, handle_start, handle_stop, print_log_head, print_log_tail};
-use citrus::config;
 use clap_builder::Parser;
+use dsorter::cli::{Cli, Commands, handle_start, handle_stop, print_log_head, print_log_tail};
+use dsorter::config;
 use notify::Result;
 
 fn main() -> Result<()> {
@@ -25,13 +25,13 @@ fn main() -> Result<()> {
         Some(Commands::Stop) => handle_stop(&pid_path),
 
         None => {
-            println!("citrus — watches a folder and auto-sorts new files by type\n");
+            println!("dsorter — watches a folder and auto-sorts new files by type\n");
             println!("USAGE:");
-            println!("  citrus start           Start watching (daemonizes)");
-            println!("  citrus stop            Stop the running daemon");
-            println!("  citrus log --tail N    Show last N log lines");
-            println!("  citrus log --head N    Show first N log lines");
-            println!("\nRun `citrus --help` for full details.");
+            println!("  dsorter start           Start watching (daemonizes)");
+            println!("  dsorter stop            Stop the running daemon");
+            println!("  dsorter log --tail N    Show last N log lines");
+            println!("  dsorter log --head N    Show first N log lines");
+            println!("\nRun `dsorter --help` for full details.");
         }
     }
 

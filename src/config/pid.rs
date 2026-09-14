@@ -6,10 +6,10 @@ use std::fs;
 use std::path::{Path, PathBuf};
 
 pub fn pid_path() -> Result<PathBuf, ConfigError> {
-    let proj_dirs = ProjectDirs::from("com", "rohit", "citrus").ok_or(ConfigError::NoConfigDir)?;
+    let proj_dirs = ProjectDirs::from("com", "rohit", "dsorter").ok_or(ConfigError::NoConfigDir)?;
     let data_dir = proj_dirs.data_dir();
     fs::create_dir_all(data_dir)?;
-    Ok(data_dir.join("citrus.pid"))
+    Ok(data_dir.join("dsorter.pid"))
 }
 
 pub fn pid_is_alive(pid: i32) -> bool {

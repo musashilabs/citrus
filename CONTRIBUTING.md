@@ -1,6 +1,6 @@
-# Contributing To Citrus
+# Contributing To dsorter
 
-Thanks for contributing to Citrus.
+Thanks for contributing to dsorter.
 
 ---
 

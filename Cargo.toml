@@ -1,8 +1,24 @@
 [package]
-name = "citrus"
+name = "dsorter"
 version = "0.1.0"
 edition = "2024"
 license = "MIT"
+description = "A background tool that watches a directory and automatically sorts new files into folders based on their type."
+repository = "https://github.com/musashilabs/dsorter"
+documentation = "https://docs.rs/dsorter"
+readme = "README.md"
+keywords = ["daemon", "background-job", "file-sorter", "sorter"]
+categories = ["utilities", "sorting"]
+exclude = [
+    ".github/",
+    ".githooks/",
+    ".config/",
+    "Makefile",
+    ".clippy.toml",
+    "deny.toml",
+    "rustfmt.toml",
+]
+
 
 [dependencies]
 clap = { version = "4.6.6", features = ["derive"] }

@@ -11,9 +11,8 @@
     </cargoProject>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="443362df-87e9-4729-8159-3094d1de2372" name="Changes" comment="feat: add daemonize with start command and introduce help fallback">
-      <change beforePath="$PROJECT_DIR$/scripts/check.sh" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/check.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/fix.sh" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/fix.sh" afterDir="false" />
+    <list default="true" id="443362df-87e9-4729-8159-3094d1de2372" name="Changes" comment="refactor: scripts for audit">
+      <change beforePath="$PROJECT_DIR$/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.toml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +66,7 @@
   }
 }</component>
   <component name="RunManager">
-    <configuration name="Test citrus" type="CargoCommandRunConfiguration" factoryName="Cargo Command">
+    <configuration name="Test dsorter" type="CargoCommandRunConfiguration" factoryName="Cargo Command">
       <option name="buildProfileId" value="test" />
       <option name="command" value="test --workspace" />
       <option name="workingDirectory" value="file://$PROJECT_DIR$" />
@@ -245,7 +244,15 @@
       <option name="project" value="LOCAL" />
       <updated>1789378111260</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="refactor: scripts for audit">
+      <option name="closed" value="true" />
+      <created>1789378543061</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1789378543061</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -285,6 +292,7 @@
     <MESSAGE value="refactor: remove audiut checks" />
     <MESSAGE value="refactor: deny.toml for daemonize" />
     <MESSAGE value="feat: add daemonize with start command and introduce help fallback" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: add daemonize with start command and introduce help fallback" />
+    <MESSAGE value="refactor: scripts for audit" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor: scripts for audit" />
   </component>
 </project>
