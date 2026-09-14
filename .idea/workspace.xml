@@ -11,15 +11,8 @@
     </cargoProject>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="443362df-87e9-4729-8159-3094d1de2372" name="Changes" comment="refactor: scripts for audit">
-      <change afterPath="$PROJECT_DIR$/src/config/status.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cargo.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.lock" afterDir="false" />
+    <list default="true" id="443362df-87e9-4729-8159-3094d1de2372" name="Changes" comment="feat: add status command and code refactors/cleanup">
       <change beforePath="$PROJECT_DIR$/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.toml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cli/mod.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/cli/mod.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/config/mod.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/mod.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,7 +99,7 @@
       <workItem from="1789066132548" duration="8284000" />
       <workItem from="1789290392290" duration="8525000" />
       <workItem from="1789308035894" duration="4369000" />
-      <workItem from="1789379362621" duration="2229000" />
+      <workItem from="1789379362621" duration="2589000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -260,7 +253,15 @@
       <option name="project" value="LOCAL" />
       <updated>1789378543061</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="feat: add status command and code refactors/cleanup">
+      <option name="closed" value="true" />
+      <created>1789415426119</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1789415426119</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -301,6 +302,7 @@
     <MESSAGE value="refactor: deny.toml for daemonize" />
     <MESSAGE value="feat: add daemonize with start command and introduce help fallback" />
     <MESSAGE value="refactor: scripts for audit" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor: scripts for audit" />
+    <MESSAGE value="feat: add status command and code refactors/cleanup" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: add status command and code refactors/cleanup" />
   </component>
 </project>
